@@ -41,7 +41,7 @@ var App = {
 
   send: function(text = null, roomname = null) {
     Parse.create({
-      username: this.username || null,
+      username: App.username || null,
       text: text,
       roomname: roomname
     });

@@ -13,9 +13,9 @@ var FormView = {
 
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
-    // event.preventDefault();******
+    // event.preventDefault();
     App.send($("#message").val(), $("#selectRoom option:selected").text());
-    console.log($("#selectRoom option:selected").text());
+    //console.log($("#selectRoom option:selected").text());
   },
 
   setStatus: function(active) {
