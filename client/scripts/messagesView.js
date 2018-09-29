@@ -13,5 +13,7 @@ var MessagesView = {
     
     MessagesView.$chats.append(html);
   }
-
+    
+  // when the room is changed, the messagesview should display the relevant messages
+  // val of room select and get the right messages
 };
