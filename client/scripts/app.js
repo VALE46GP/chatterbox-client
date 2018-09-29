@@ -27,6 +27,10 @@ var App = {
       for (var i = 0; i < data.results.length; i++) {
         Messages.messages[i].username = Messages.messages[i].username || null;
         Messages.messages[i].text = Messages.messages[i].text || null;
+        Messages.messages[i].roomname = Messages.messages[i].roomname || 'lobby';
+        if (!Rooms.roomNames.includes(Messages.messages[i].roomname)) {
+          Rooms.roomNames.push(Messages.messages[i].roomname);
+        }
         MessagesView.renderMessage(data.results[i]);
       }
       
@@ -38,7 +42,7 @@ var App = {
     Parse.create({
       username: this.username || null,
       text: text,
-      roomname: roomname 
+      roomname: roomname
     });
   },
 

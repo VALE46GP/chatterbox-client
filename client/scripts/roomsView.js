@@ -5,6 +5,7 @@ var RoomsView = {
 
   initialize: function() {
     this.selectButton();
+    //this.populateSelect();
   },
 
   renderRoom: function(room) {
@@ -18,11 +19,20 @@ var RoomsView = {
       Rooms.roomNames.push(room);
       console.log('Rooms.roomNames = ', Rooms.roomNames);
     });
+  },
+
+  populateSelect: function() {
+    console.log(Rooms.roomNames);
+    Rooms.roomNames.forEach(r => {
+      RoomsView.renderRoom(`<option value="<%-r%>">${r}</option>`)
+      console.log(r);
+    });
+    
   }
 
 };
 
 
-// new room goes with message to be sent to server
 // populate select with room names
+// populate Messages with server messages
 // modify message view to display only messages from specific rooms
