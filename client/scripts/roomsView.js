@@ -16,6 +16,7 @@ var RoomsView = {
       var room = prompt('Room Name: ');
       RoomsView.renderRoom(`<option value="<%-room%>">${room}</option>`);
       Rooms.roomNames.push(room);
+      console.log('Rooms.roomNames = ', Rooms.roomNames);
     });
   }
 
