@@ -2,7 +2,7 @@ var App = {
 
   $spinner: $('.spinner img'),
 
-  username: 'PootyTang',
+  username: window.location.search.slice(10),
 
   initialize: function() {
     App.username = window.location.search.substr(10);
@@ -13,7 +13,7 @@ var App = {
     Messages.initialize();
 
     // Fetch initial batch of messages
-    App.send();
+    // App.send();
     App.startSpinner();
     App.fetch(App.stopSpinner);
 
@@ -22,9 +22,11 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log(data);
+      // console.log(data);
       Messages.messages = data.results;
       for (var i = 0; i < data.results.length; i++) {
+        Messages.messages[i].username = Messages.messages[i].username || null;
+        Messages.messages[i].text = Messages.messages[i].text || null;
         MessagesView.renderMessage(data.results[i]);
       }
       
@@ -32,11 +34,11 @@ var App = {
     });
   },
 
-  send: function() {
+  send: function(text = null, roomname = null) {
     Parse.create({
-      username: 'PootyTang',
-      text: 'Sada tay',
-      roomname: 'lobby' 
+      username: this.username || null,
+      text: text,
+      roomname: roomname 
     });
   },
 

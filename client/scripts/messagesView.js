@@ -11,7 +11,7 @@ var MessagesView = {
     
     html += MessageView.render(message);
     
-    this.$chats.append(html);
+    MessagesView.$chats.append(html);
   }
 
 };
