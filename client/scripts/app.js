@@ -16,7 +16,7 @@ var App = {
     // App.send();
     App.startSpinner();
     App.fetch(App.stopSpinner);
-
+    
   },
 
   fetch: function(callback = ()=>{}) {
@@ -24,6 +24,7 @@ var App = {
       // examine the response from the server request:
       // console.log(data);
       Messages.messages = data.results;
+
       for (var i = 0; i < data.results.length; i++) {
         Messages.messages[i].username = Messages.messages[i].username || null;
         Messages.messages[i].text = Messages.messages[i].text || null;

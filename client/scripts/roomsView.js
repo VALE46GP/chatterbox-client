@@ -5,7 +5,7 @@ var RoomsView = {
 
   initialize: function() {
     this.selectButton();
-    //this.populateSelect();
+    this.realSelectButton();
   },
 
   renderRoom: function(room) {
@@ -17,22 +17,29 @@ var RoomsView = {
       var room = prompt('Room Name: ');
       RoomsView.renderRoom(`<option value="<%-room%>">${room}</option>`);
       Rooms.roomNames.push(room);
-      console.log('Rooms.roomNames = ', Rooms.roomNames);
+      //console.log('Rooms.roomNames = ', Rooms.roomNames);
     });
   },
 
+  realSelectButton: function() {
+    this.$select.click(function() {
+      RoomsView.populateSelect();
+      MessagesView.renderMessageByRoom($("#selectRoom option:selected").text());
+     });
+  },
+
   populateSelect: function() {
-    console.log(Rooms.roomNames);
+    this.$select.html('');
     Rooms.roomNames.forEach(r => {
-      RoomsView.renderRoom(`<option value="<%-r%>">${r}</option>`)
-      console.log(r);
+      this.$select.append(`<option value="<%-r%>">${r}</option>`)
     });
+    //$('#rooms').appendTo(this.$select)
     
   }
 
 };
 
 
-// populate select with room names
+// populate select with room names - lol
 // populate Messages with server messages
 // modify message view to display only messages from specific rooms
