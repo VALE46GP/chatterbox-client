@@ -4,9 +4,15 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
+  
   },
 
-  render: function() {
+  renderRoom: function(room) {
+    var html = "";
+    //for (var key in messages) {
+    html += MessageView.render(room);
+    //}  
+    this.$select.append(html);  
   }
 
 };

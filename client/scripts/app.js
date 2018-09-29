@@ -2,7 +2,7 @@ var App = {
 
   $spinner: $('.spinner img'),
 
-  username: 'anonymous',
+  username: 'dedinside',
 
   initialize: function() {
     App.username = window.location.search.substr(10);
@@ -12,6 +12,7 @@ var App = {
     MessagesView.initialize();
 
     // Fetch initial batch of messages
+    App.send();
     App.startSpinner();
     App.fetch(App.stopSpinner);
 
@@ -21,8 +22,19 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
-
+      for (var i = 0; i < data.results.length; i++) {
+        MessagesView.renderMessage(data.results[i]);
+      }
+      
       callback();
+    });
+  },
+
+  send: function() {
+    Parse.create({
+      username: 'Smel Brook',
+      text: 'QQ',
+      roomname: 'lobby' 
     });
   },
 
