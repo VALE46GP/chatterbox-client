@@ -10,6 +10,7 @@ var App = {
     FormView.initialize();
     RoomsView.initialize();
     MessagesView.initialize();
+    Messages.initialize();
 
     // Fetch initial batch of messages
     App.send();
@@ -22,6 +23,7 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
+      Messages.messages = data.results;
       for (var i = 0; i < data.results.length; i++) {
         MessagesView.renderMessage(data.results[i]);
       }
