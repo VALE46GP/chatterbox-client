@@ -20,3 +20,8 @@ var RoomsView = {
   }
 
 };
+
+
+// new room goes with message to be sent to server
+// populate select with room names
+// modify message view to display only messages from specific rooms

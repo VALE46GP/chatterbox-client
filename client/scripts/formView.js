@@ -1,17 +1,20 @@
 var FormView = {
 
   $form: $('form'),
+ 
   //username: window.location.search.slice(10),
 
   initialize: function() {
+    
+
     FormView.$form.on('submit', FormView.handleSubmit);
 
   },
 
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
-    // event.preventDefault();
-    App.send();
+    // event.preventDefault();******
+    App.send($("#message").val(), 'pls');
     console.log('click!');
   },
 
