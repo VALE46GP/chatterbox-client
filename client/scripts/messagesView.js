@@ -3,14 +3,15 @@ var MessagesView = {
   $chats: $('#chats'),
 
   initialize: function() {
+    
   },
 
-  renderMessage: function(messages) {
+  renderMessage: function(message) {
     var html = "";
-    //for (var key in messages) {
-    html += MessageView.render(messages);
-    //}  
-    this.$chats.append(html);  
+    
+    html += MessageView.render(message);
+    
+    this.$chats.append(html);
   }
 
 };

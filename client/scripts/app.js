@@ -2,7 +2,7 @@ var App = {
 
   $spinner: $('.spinner img'),
 
-  username: 'dedinside',
+  username: 'PootyTang',
 
   initialize: function() {
     App.username = window.location.search.substr(10);
@@ -32,8 +32,8 @@ var App = {
 
   send: function() {
     Parse.create({
-      username: 'Smel Brook',
-      text: 'QQ',
+      username: 'PootyTang',
+      text: 'Sada tay',
       roomname: 'lobby' 
     });
   },
