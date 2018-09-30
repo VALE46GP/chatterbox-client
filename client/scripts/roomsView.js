@@ -4,17 +4,17 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
-    this.selectButton();
-    this.realSelectButton();
-    this.goToRoom();
+    RoomsView.selectButton();
+    RoomsView.realSelectButton();
+    RoomsView.goToRoom();
   },
 
   renderRoom: function(room) {
-    this.$select.append(room);  
+    RoomsView.$select.append(room);  
   },
 
   selectButton: function() {
-    this.$button.click(function() {
+    RoomsView.$button.click(function() {
       var room = prompt('Room Name: ');
       RoomsView.renderRoom(`<option value="<%-room%>">${room}</option>`);
       Rooms.roomNames.push(room);
@@ -23,7 +23,7 @@ var RoomsView = {
   },
 
   realSelectButton: function() {
-    this.$select.click(function() {
+    RoomsView.$select.click(function() {
       RoomsView.populateSelect();
       //MessagesView.renderMessageByRoom($("#selectRoom option:selected").text());
      });
@@ -36,7 +36,7 @@ var RoomsView = {
   },
 
   populateSelect: function() {
-    this.$select.html('');
+    RoomsView.$select.html('');
     Rooms.roomNames.forEach(r => {
       RoomsView.$select.append(`<option value="<%-r%>">${r}</option>`)
     });
